@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Complaint Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 40%;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 40%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fraud Complaint Form</h2>
+        <br>
+        <form>
+            <div class="section1">
+                <h3>Personal Information</h3>
+                <label>First Name*</label>
+                <input type="text" required>
+                <br>
+                <label>Last Name*</label>
+                <input type="text" required>
+                <br>
+                <label>Email Address*</label>
+                <input type="email" required>
+                <br>
+                <label>Phone Number*</label>
+                <input type="tel" required>
+                <br>
+                <label>Address</label>
+                <input type="text">
+                <br>
+                <label>City</label>
+                <input type="text">
+                <br>
+                <label>State*</label>
+                <select required>
+                        <option value="">choose a state</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </select>
+                <br>
+                <label>Zip Code*</label>
+                <input type="text" required>
+            </div>
+            <br>
+            <br>
+            <div class="section2">
+                <h3>Complaint Details</h3>
+                <label>Company Name</label>
+                <input type="text">
+                <br>
+                <label>Person Involved</label>
+                <input type="text">
+                <br>
+                <label>Fraud Type*</label>
+                <select required>
+                    <option value="">choose a fraud</option>
+                    <option value="">OTP Scam Fraud</option>
+                    <option value="">Digital Arrest</option>
+                    <option value="">Courrier Fraud</option>
+                    <option value="">Lottery and Prize Scam</option>
+                </select>
+                <br>
+                <label>Date of Incident*</label>
+                <input type="date" required>
+                <br>
+                <label>Amount Involved</label>
+                <input type="number">
+                <br>
+                <label>Payment Method</label>
+                <select>
+                    <option value="">choose a method</option>
+                    <option value="">Debit Card</option>
+                    <option value="">Credit Crad</option>
+                    <option value="">UPI</option>
+                    <option value="">Net Bnking</option>
+                </select>
+                <br>
+                <label>Detailed Information</label>
+                <input type="text" required>
+            </div>
+            <br>
+            <br>
+            <div class="section3">
+                <h3>Additional Information</h3>
+                <label>Do you have any supporting documents?</label>
+                <input type="file">
+                <br>
+                <label>Were there any witnesses?</label>
+                <input type="text">
+            </div>
+            
+            <button type="submit">Submit Complaint</button>
+        </form>
+    </div>
+</body>
+</html>
