@@ -1,0 +1,466 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #f5f5f5;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #4cc9f0;
+}
+
+.search-nav-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 15px;
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.search-bar::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-menu li {
+  margin-bottom: 0;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-menu a:hover {
+  background-color: rgba(76, 201, 240, 0.2);
+}
+
+.nav-menu a.active {
+  background-color: #4cc9f0;
+  color: #16213e;
+  font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+  padding-top: 20px;
+}
+
+/* Hero Section */
+.hero {
+  background: #bdc3c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #f72585, #b5179e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.4);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  z-index: -1;
+}
+
+/* Fraud Types Section */
+.fraud-types {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #16213e;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.fraud-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.fraud-card {
+  min-width: 280px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 25px;
+  scroll-snap-align: start;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.fraud-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.fraud-card:hover ~ .fraud-card {
+  filter: blur(2px);
+}
+
+.fraud-card h3 {
+  color: #4361ee;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.fraud-card p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.fraud-card .icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #f72585;
+}
+
+/* Prevention Tips */
+.prevention-tips {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+}
+
+.tips-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tip-item {
+  background: white;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tip-number {
+  background: #4361ee;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.tip-content h4 {
+  margin-bottom: 8px;
+  color: #16213e;
+  font-size: 1.1rem;
+}
+
+.tip-content p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Quiz Section */
+.quiz-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #16213e, #1a1a2e);
+  color: white;
+  text-align: center;
+}
+
+.quiz-section .section-title {
+  color: white;
+}
+
+.quiz-section .section-title::after {
+  background: linear-gradient(90deg, #4cc9f0, #f72585);
+}
+
+.quiz-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #f72585, #b5179e);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* About Us */
+.about-us {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+  background: #16213e;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #4cc9f0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #4cc9f0;
+  transform: translateY(-5px);
+}
+
+.copyright {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .nav-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .logo {
+      margin-bottom: 0;
+  }
+  
+  .search-nav-container {
+      width: auto;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+  }
+  
+  .search-bar {
+      width: 300px;
+      margin-bottom: 0;
+  }
+  
+  .nav-menu {
+      margin-top: 0;
+  }
+  
+  .hero h1 {
+      font-size: 4rem;
+  }
+  
+  .hero p {
+      font-size: 1.5rem;
+  }
+  
+  .btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+  }
+  
+  .fraud-card {
+      min-width: 320px;
+  }
+}

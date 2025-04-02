@@ -3,46 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>CALL FRAUD</title>
-
+    <title>Call Fraud Awareness</title>
+    <link rel="stylesheet" href="stylesheet2.css">
 </head>
 <body>
-    <header>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">CallGuard</div>
+            <div class="search-nav-container">
+              <form>
+                <input type="text" class="search-bar" placeholder="Search...">
+              </form>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#fraud-types">Common Cases</a></li>
+                    <li><a href="#prevention-tips">Prevention Tips</a></li>
+                    <li><a href="#quiz-section">Take Quiz</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#">Donate</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
-            <form class="search-bar" action="#" method="get">
-                <input type="text" placeholder="Search..." name="q">
-                <button type="submit">
-                    <img src="search.png" alt="Search" style="width: 16px; height: 16px;">
-                </button>
-            </form>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#common-frauds">Common Frauds</a>
-            <a href="#donate">Donate</a>
-            <a href="#about-us">About Us</a>
-        </nav>
-    </header>
-
-    <section id="home">
-        <h1>CALL FRAUD</h1>
-        <p>Attention !!! There is a sudden spike in the number of spam calls.</p>
-    </section>
-
-    <section id="common-frauds">
-        <h2>Common Frauds</h2>
-        <p>Here you can find information about the most common types of call fraud and how to avoid them.</p>
-    </section>
-    <section id="about-us">
-        <h2>About Us</h2>
-        <p>We are dedicated to educating people about call fraud and providing resources to stay safe.</p>
-    </section>
-    <section id="donate">
-        <h2>Donate</h2>
-        <p>Your contributions help us spread awareness and fight call fraud. Thank you for your support!</p>
-    </section>
-    <footer>
-        <p>&copy; 2025 Call Fraud Awareness. All rights reserved.</p>
-    </footer>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="section-container">
+                <h1>CALL FRAUD !!!</h1>
+                <p>Attention!!! There is a sudden spike in number of fraud calls. Protect yourself and your loved ones.</p>
+                <div class="action-buttons">
+                    <a href="#prevention-tips" class="btn btn-primary">Prevention Tips</a>
+                    <a href="fileacase.html" class="btn btn-secondary">Report A Case</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fraud Types Section -->
+        <section class="fraud-types" id="fraud-types">
+            <div class="section-container">
+                <h2 class="section-title">Types of Call Frauds</h2>
+                <div class="fraud-container">
+                    <div class="fraud-card">
+                        <div class="icon">🔒</div>
+                        <h3>Digital Arrest</h3>
+                        <p>Scammers pretend to be law enforcement officials and claim your device is involved in illegal activities. They demand payment to "release" your device from "digital arrest," creating fear and urgency to manipulate victims.</p>
+                    </div>
+                    <div class="fraud-card">
+                        <div class="icon">📱</div>
+                        <h3>OTP Scam Calls</h3>
+                        <p>Fraudsters call pretending to be from banks or service providers, asking for OTPs under various pretexts. Once obtained, they gain unauthorized access to accounts, leading to financial losses.</p>
+                    </div>
+                    <div class="fraud-card">
+                        <div class="icon">🎰</div>
+                        <h3>Lottery Scam Call</h3>
+                        <p>Victims receive calls claiming they've won a lottery or prize but need to pay fees or taxes to claim it. These scams prey on greed and often target elderly or vulnerable individuals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Prevention Tips -->
+        <section class="prevention-tips" id="prevention-tips">
+            <div class="section-container">
+                <h2 class="section-title">Prevention Tips</h2>
+                <div class="tips-list">
+                    <div class="tip-item">
+                        <div class="tip-number">1</div>
+                        <div class="tip-content">
+                            <h4>Never Share Personal Information</h4>
+                            <p>Legitimate organizations will never ask for sensitive information like passwords, OTPs, or banking details over the phone. Always verify the caller's identity through official channels.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-number">2</div>
+                        <div class="tip-content">
+                            <h4>Register for DND Service</h4>
+                            <p>Register your number with the National Do Not Call Registry to reduce unsolicited calls. While not foolproof, it significantly decreases spam and fraudulent calls.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-number">3</div>
+                        <div class="tip-content">
+                            <h4>Use Caller ID Apps</h4>
+                            <p>Install reputable caller ID applications that can identify and block known spam numbers. These apps often have community-based reporting systems.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-number">4</div>
+                        <div class="tip-content">
+                            <h4>Beware of Urgency Tactics</h4>
+                            <p>Scammers often create false urgency ("Your account will be blocked!"). Take time to verify claims independently before acting on any phone instructions.</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-number">5</div>
+                        <div class="tip-content">
+                            <h4>Educate Vulnerable Family Members</h4>
+                            <p>Elderly relatives are often targets. Regularly discuss common scam tactics with them and establish verification protocols for suspicious calls.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section class="quiz-section" id="quiz-section">
+            <div class="section-container">
+                <h2 class="section-title">Test Your Knowledge</h2>
+                <p>Take our interactive quiz to learn more about call frauds and how to protect yourself from them.</p>
+                <a href="quiz.html" class="quiz-btn">Take the Quiz Now</a>
+            </div>
+        </section>
+        
+        <!-- About Us -->
+        <section class="about-us" id="about-us">
+            <div class="section-container">
+                <h2 class="section-title">About Us</h2>
+                <div class="about-content">
+                    <p>CallGuard is a non-profit initiative dedicated to raising awareness about telephone fraud and protecting consumers from financial scams. Our team consists of cybersecurity experts, former law enforcement officers, and fraud prevention specialists.</p>
+                    <p>Since our founding in 2020, we've educated over 100,000 individuals through our awareness campaigns and helped prevent millions in potential fraud losses. Our mission is to create a safer digital environment for everyone.</p>
+                    <p>We partner with government agencies, financial institutions, and community organizations to stay ahead of emerging fraud tactics and provide up-to-date prevention resources.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="section-container">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Resources</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#">📱</a>
+                    <a href="#">💻</a>
+                    <a href="#">📧</a>
+                    <a href="#">📞</a>
+                </div>
+                <p class="copyright">© 2024 CallGuard. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
