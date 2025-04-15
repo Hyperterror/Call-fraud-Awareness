@@ -51,18 +51,25 @@ body {
 .search-nav-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust spacing as needed */
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255,255,255,0.1);
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .search-bar {
-  width: 100%;
-  max-width: 500px;
+  flex: 1;
   padding: 10px;
-  border-radius: 5px;
   border: none;
-  margin-bottom: 15px;
-  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  background-color: transparent;
   color: white;
 }
 
@@ -70,6 +77,15 @@ body {
   color: rgba(255,255,255,0.5);
 }
 
+.search-icon {
+  width: 20px; /* Adjust based on image size */
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.search-icon:hover {
+  transform: scale(1.1);
+}
 .nav-menu {
   list-style: none;
   display: flex;
@@ -104,10 +120,7 @@ body {
 
 /* Main Content */
 .main-content {
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
-
+  padding-top: 20px;
 }
 
 /* Hero Section */
@@ -121,12 +134,6 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-radius: 50px;
-  box-shadow: 10px 10px 5px #bdc3c7 ;
-  margin-bottom: 40px;
-
-
-
 }
 
 .hero h1 {
@@ -205,10 +212,6 @@ body {
 .fraud-types {
   padding: 60px 20px;
   background-color: white;
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
-  border-radius: 30px;
-  margin-bottom: 20px;
-  position: relative;
 }
 
 .section-container {
@@ -260,9 +263,6 @@ body {
 }
 
 .fraud-card:hover ~ .fraud-card {
-  filter: blur(2px);
-}
-.fraud-container:hover .fraud-card:not(:hover) {
   filter: blur(2px);
 }
 
