@@ -1,35 +1,33 @@
-const scriptURL = "Yhttps://script.google.com/macros/s/AKfycbwVX1HsFUlcGzFw-QIGFAQDQvKWtT_FtTa808g6_qliYHqVpAX_lMSC1n5FTL124NpdxQ/exec"; // <-- Replace with your actual Apps Script Web App URL
+const scriptURL = "https://script.google.com/macros/s/AKfycbwVX1HsFUlcGzFw-QIGFAQDQvKWtT_FtTa808g6_qliYHqVpAX_lMSC1n5FTL124NpdxQ/exec"; // Fixed the URL
 const form = document.getElementById("complaint-form");
 const submitButton = document.getElementById("submit-button");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Stop default form action
+  e.preventDefault();
 
   submitButton.innerHTML = "Submitting...";
   submitButton.disabled = true;
 
   const formData = new FormData(form);
-  const formProps = Object.fromEntries(formData); // Convert FormData to JSON object
+  const formProps = Object.fromEntries(formData);
 
   fetch(scriptURL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
     },
     body: JSON.stringify(formProps),
-    mode: "no-cors" // IMPORTANT for Google Apps Script to avoid CORS error
+    mode: "no-cors"
   })
   .then(() => {
-    // Cannot check response.ok in no-cors, so assume success
     alert("Submitted Successfully!");
     form.reset();
-    submitButton.innerHTML = "Submit Complaint";
-    submitButton.disabled = false;
   })
   .catch(error => {
-    console.error("Error!", error.message);
+    console.error("Error!", error);
     alert("Submission failed! Please try again later.");
+  })
+  .finally(() => {
     submitButton.innerHTML = "Submit Complaint";
     submitButton.disabled = false;
   });
