@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbwVX1HsFUlcGzFw-QIGFAQDQvKWtT_FtTa808g6_qliYHqVpAX_lMSC1n5FTL124NpdxQ/exec"; // Fixed the URL
+const scriptURL = "https://script.google.com/macros/s/AKfycbwz5dlBhvMq5VuMiRQq6EyaozlnzziGuviqXddfCAL_OvlRil8PyI1usin8z_tEvIt8Iw/exec"; // Fixed the URL
 const form = document.getElementById("complaint-form");
 const submitButton = document.getElementById("submit-button");
 
