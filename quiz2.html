@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scam Identification Challenge | CallGuard</title>
+    <link rel="stylesheet" href="stylesheet2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Quiz Page Specific Styles */
+        .quiz-page {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-title {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-description {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .quiz-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .question-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+            border: 1px solid #e0f2ff;
+        }
+        
+        .question-number {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .option-btn {
+            padding: 1rem;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            background: white;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .option-btn:hover {
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+        
+        .option-btn.selected {
+            border-color: #3498db;
+            background-color: #f0f9ff;
+        }
+        
+        .option-btn.correct {
+            border-color: #27ae60;
+            background-color: rgba(39, 174, 96, 0.1);
+        }
+        
+        .option-btn.incorrect {
+            border-color: #e74c3c;
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .progress-text {
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+        
+        .next-btn, .submit-btn {
+            padding: 0.8rem 1.5rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .next-btn:hover, .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn {
+            display: none;
+            background: #27ae60;
+        }
+        
+        .submit-btn:hover {
+            background: #219653;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.1);
+        }
+        
+        .result-score {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin: 1rem 0;
+        }
+        
+        .result-message {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-details {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .retry-btn {
+            padding: 0.8rem 1.5rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .retry-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #f39c12;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Reuse your existing navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="home.html" class="logo">CallGuard</a>
+            <div class="search-nav-container">
+                <form>
+                    <input type="text" class="search-bar" placeholder="Search...">
+                </form>
+                <ul class="nav-menu">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Home.html#fraud-types">Common Cases</a></li>
+                    <li><a href="Home.html">Prevention Tips</a></li>
+                    <li><a href="Home.html">Quizzes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Content -->
+    <main class="quiz-page">
+        <div class="quiz-header">
+            <div class="quiz-icon">
+                <i class="fas fa-user-secret fa-3x" style="color: #3498db;"></i>
+            </div>
+            <h1 class="quiz-title">Scam Identification Challenge</h1>
+            <p class="quiz-description">Can you spot the red flags? Test your ability to identify sophisticated scam attempts.</p>
+            <div class="quiz-meta">
+                <span><i class="fas fa-question-circle"></i> 5 Questions</span>
+                <span><i class="fas fa-clock"></i> 5-7 mins</span>
+            </div>
+            <div class="difficulty-badge">Intermediate Level</div>
+        </div>
+
+        <!-- Quiz Questions Container -->
+        <div id="questions-container">
+            <!-- Question 1 -->
+            <div class="question-container" data-question="1">
+                <div class="question-number">Question 1 of 5</div>
+                <p class="question-text">A caller claims your social security number was used in fraud and asks you to confirm it for "verification." What's the best response?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-correct="true">A) Hang up and contact the official SSA number from their website</button>
+                    <button class="option-btn">B) Provide the last 4 digits to test if they're legitimate</button>
+                    <button class="option-btn">C) Confirm your number but ask them to delete it after</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-container" data-question="2" style="display:none;">
+                <div class="question-number">Question 2 of 5</div>
+                <p class="question-text">You receive a call from "Tech Support" saying your computer has a virus. They ask you to install remote access software. This is:</p>
+                <div class="options-grid">
+                    <button class="option-btn">A) A legitimate service from Microsoft</button>
+                    <button class="option-btn" data-correct="true">B) A common tech support scam</button>
+                    <button class="option-btn">C) Probably a wrong number</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-container" data-question="3" style="display:none;">
+                <div class="question-number">Question 3 of 5</div>
+                <p class="question-text">A caller says they're from the IRS and demands immediate payment via gift cards. What's the red flag?</p>
+                <div class="options-grid">
+                    <button class="option-btn">A) They know your name</button>
+                    <button class="option-btn" data-correct="true">B) The IRS never demands payment via gift cards</button>
+                    <button class="option-btn">C) They called unexpectedly</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-container" data-question="4" style="display:none;">
+                <div class="question-number">Question 4 of 5</div>
+                <p class="question-text">Which of these is NOT a common characteristic of scam calls?</p>
+                <div class="options-grid">
+                    <button class="option-btn">A) Creating a sense of urgency</button>
+                    <button class="option-btn">B) Asking for unusual payment methods</button>
+                    <button class="option-btn" data-correct="true">C) Providing detailed written documentation first</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-container" data-question="5" style="display:none;">
+                <div class="question-number">Question 5 of 5</div>
+                <p class="question-text">A caller ID shows your bank's name, asking you to "verify" your account by reading back a code they texted you. What should you do?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-correct="true">A) Hang up and call your bank's official number</button>
+                    <button class="option-btn">B) Read the code but monitor your account</button>
+                    <button class="option-btn">C) Tell them you'll call back later</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Footer -->
+        <div class="quiz-footer">
+            <div class="progress-text" id="progress-text">1 of 5 questions answered</div>
+            <button class="next-btn" id="next-btn">Next Question <i class="fas fa-arrow-right"></i></button>
+            <button class="submit-btn" id="submit-btn">Submit Quiz</button>
+        </div>
+
+        <!-- Quiz Results -->
+        <div class="quiz-result" id="quiz-result">
+            <i class="fas fa-trophy fa-3x" style="color: #f1c40f;"></i>
+            <h2>Quiz Completed!</h2>
+            <div class="result-score" id="result-score">0/5</div>
+            <p class="result-message" id="result-message"></p>
+            
+            <div class="result-details">
+                <h3>What to do next:</h3>
+                <ul>
+                    <li>Review our <a href="index.html#prevention-tips">Prevention Tips</a> for more protection strategies</li>
+                    <li>Learn about <a href="index.html#fraud-types">Common Scam Types</a></li>
+                    <li>Share this quiz to help others stay safe</li>
+                </ul>
+            </div>
+            
+            <button class="retry-btn" id="retry-btn"><i class="fas fa-redo"></i> Take Quiz Again</button>
+        </div>
+    </main>
+
+    <!-- Reuse your existing footer -->
+    <footer>
+        <div class="section-container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Resources</a>
+            </div>
+            <p class="copyright">© 2024 CallGuard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.question-container');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const retryBtn = document.getElementById('retry-btn');
+            const progressText = document.getElementById('progress-text');
+            const quizResult = document.getElementById('quiz-result');
+            const resultScore = document.getElementById('result-score');
+            const resultMessage = document.getElementById('result-message');
+            
+            let currentQuestion = 0;
+            let score = 0;
+            let selectedOptions = [];
+            
+            // Initialize quiz
+            showQuestion(currentQuestion);
+            
+            // Option selection
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove previous selection for this question
+                    const questionContainer = this.closest('.question-container');
+                    questionContainer.querySelectorAll('.option-btn').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Mark selected option
+                    this.classList.add('selected');
+                    selectedOptions[currentQuestion] = this;
+                    
+                    // Enable next/submit button
+                    if (currentQuestion < questions.length - 1) {
+                        nextBtn.disabled = false;
+                    } else {
+                        submitBtn.disabled = false;
+                    }
+                });
+            });
+            
+            // Next question
+            nextBtn.addEventListener('click', function() {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+                
+                if (currentQuestion === questions.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'block';
+                }
+            });
+            
+            // Submit quiz
+            submitBtn.addEventListener('click', function() {
+                calculateScore();
+                showResults();
+            });
+            
+            // Retry quiz
+            retryBtn.addEventListener('click', function() {
+                currentQuestion = 0;
+                score = 0;
+                selectedOptions = [];
+                
+                // Reset all questions
+                questions.forEach(q => q.style.display = 'none');
+                questions[0].style.display = 'block';
+                
+                // Reset options
+                document.querySelectorAll('.option-btn').forEach(btn => {
+                    btn.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                // Reset UI
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+                quizResult.style.display = 'none';
+                nextBtn.disabled = true;
+                submitBtn.disabled = true;
+                updateProgressText();
+            });
+            
+            function showQuestion(index) {
+                questions.forEach(q => q.style.display = 'none');
+                questions[index].style.display = 'block';
+                nextBtn.disabled = !selectedOptions[index];
+                updateProgressText();
+            }
+            
+            function calculateScore() {
+                score = 0;
+                selectedOptions.forEach((option, index) => {
+                    if (option && option.hasAttribute('data-correct')) {
+                        score++;
+                        option.classList.add('correct');
+                    } else if (option) {
+                        option.classList.add('incorrect');
+                    }
+                    
+                    // Also show correct answer if wrong
+                    if (option && !option.hasAttribute('data-correct')) {
+                        const correctOption = questions[index].querySelector('[data-correct="true"]');
+                        if (correctOption) correctOption.classList.add('correct');
+                    }
+                });
+            }
+            
+            function showResults() {
+                document.getElementById('questions-container').style.display = 'none';
+                document.querySelector('.quiz-footer').style.display = 'none';
+                quizResult.style.display = 'block';
+                
+                resultScore.textContent = `${score}/${questions.length}`;
+                
+                const messages = [
+                    "Keep learning! Review our prevention tips to stay safe.",
+                    "Good start! You're aware but can improve your scam-spotting skills.",
+                    "Well done! You recognize most scams but stay vigilant.",
+                    "Excellent! You're very knowledgeable about call fraud.",
+                    "Perfect! You're a scam identification expert!"
+                ];
+                
+                resultMessage.textContent = messages[score];
+            }
+            
+            function updateProgressText() {
+                const answered = selectedOptions.filter(opt => opt).length;
+                progressText.textContent = `${answered} of ${questions.length} questions answered`;
+            }
+        });
+    </script>
+</body>
+</html>
