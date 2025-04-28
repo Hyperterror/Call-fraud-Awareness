@@ -358,3 +358,37 @@ const closeBtn1 = document.getElementById("Type2");
 closeBtn1.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+function moveSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    showSlide(currentSlide);
+}
+
+// Initialize first slide
+showSlide(currentSlide);
+
+// Scroll Hide/Show Navbar
+let prevScrollPos = window.pageYOffset;
+const navBar = document.querySelector('.top-nav');
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollPos > currentScrollPos) {
+        navBar.style.top = "0"; // Show navbar
+    } else {
+        navBar.style.top = "-80px"; // Hide navbar (adjust height if needed)
+    }
+    prevScrollPos = currentScrollPos;
+}
+
